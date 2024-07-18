@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+class Program {
+    static void DrawCharacterCreator()
+    {
+        Console.WriteLine($"Skin Tone: {skinTones[skinToneIdx]}");
+        Console.WriteLine($"Helmet: {helmets[helmetIdx]}");
+        Console.WriteLine($"Eye Color: {eyeColors[eyeColorIdx]}");
+        Console.WriteLine($"Hair Type: {hairTypes[hairTypeIdx]}");
+        Console.WriteLine($"Hair Color: {hairColors[hairColorIdx]}");
+    }
+    static void Main()
+    {
+        while (true)
+        {
+            DrawCharacterCreator();
+
+            Console.WriteLine("Press a key (q, w, e, r, t) to cycle through options or 'exit' to quit: ");
+            string key = Console.ReadLine();
+            if (key == "exit")
+            {
+                break;
+            }
+            else if (key == "q")
+            {
+                skinToneIdx = (skinToneIdx + 1) % skinTones.Count;
+            }
+            else if (key == "w")
+            {
+                helmetIdx = (helmetIdx + 1) % helmets.Count;
+            }
+            else if (key == "e")
+            {
+                eyeColorIdx = (eyeColorIdx + 1) % eyeColors.Count;
+            }
+            else if (key == "r")
+            {
+                hairTypeIdx = (hairTypeIdx + 1) % hairTypes.Count;
+            }
+            else if (key == "t")
+            {
+                hairColorIdx = (hairColorIdx + 1) % hairColors.Count;
+            }
+        }
+    }
+    static List<string> skinTones = new List<string> { "Light White", "Dark White", "Light Tan", "Dark Tan", "Light Black", "Dark Black" };
+    static List<string> helmets = new List<string> { "Wizard Knight", "Leather", "Crown", "Cat Ears", "Chainmail", "Steel" };
+    static List<string> eyeColors = new List<string> { "Blue", "Green", "Brown", "Black" };
+    static List<string> hairTypes = new List<string> { "Spikey", "Curly", "Straight", "Short", "Long" };
+    static List<string> hairColors = new List<string> { "Red", "Black", "Blond", "Brown" };
+    static int skinToneIdx = 0;
+    static int helmetIdx = 0;
+    static int eyeColorIdx = 0;
+    static int hairTypeIdx = 0;
+    static int hairColorIdx = 0;
+}
